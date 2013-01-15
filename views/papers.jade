@@ -85,6 +85,7 @@ block content
                 td 状态
                 td 总分
                 td 试题数量
+                td 
             tbody
               for paper in papers
                 tr 
@@ -104,6 +105,26 @@ block content
                     small #{paper.total_point}
                   td 
                     small #{paper.question_count}
+                  td
+                    div.btn-group
+                      a.btn(href="#",style="font-size: 12px;")
+                        操作
+                      a.btn.dropdown-toggle(data-toggle="dropdown",href="#")
+                        span.caret
+                      ul.dropdown-menu(style="min-width: 80px;")
+                        li
+                          a(href="#",style="font-size: 12px")
+                            i.icon-pencil
+                            &nbsp;编辑
+                        li
+                          a(href="#",style="font-size: 12px;")
+                            i.icon-trash
+                            &nbsp;删除
+                        li.divider
+                        li
+                          a(href="#",style="font-size: 12px;")
+                            i.icon-check
+                            &nbsp;发布
         div.pagination
           ul
             - for (var index = 1; index <= count/pageSize + 1; index ++)

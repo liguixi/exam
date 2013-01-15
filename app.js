@@ -6,6 +6,10 @@
 var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
+  // 考试相关
+  , exam = require('./routes/exam')
+  // 试卷相关
+  , paper = require('./routes/paper')
   , http = require('http')
   , path = require('path');
 
@@ -31,9 +35,12 @@ app.get('/', routes.index);
 app.get('/login', routes.login);
 app.get('/reg', routes.reg);
 app.get('/users', user.list);
-app.get('/addExam', routes.addExam);
-app.get('/addPaper', routes.addPaper);
-app.get('/papers', routes.papers);
+// 试卷相关
+app.get('/addPaper', paper.addPaper);
+app.get('/papers', paper.papers);
+// 考试相关
+app.get('/addExam', exam.addExam);
+app.get('/exams', exam.exams);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
