@@ -1,0 +1,119 @@
+extends layout
+      
+block content
+  style(type="text/css")
+    body {
+      padding-top: 60px;
+      padding-bottom: 40px;
+    }
+    .sidebar-nav {
+      padding: 9px 0;
+    }
+
+  div.navbar.navbar-inverse.navbar-fixed-top
+    div.navbar-inner
+      div.container-fluid
+        a.btn.btn-navbar(data-toggle="collapse",data-target=".nav-collapse")
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.brand(href="#") 在线考试
+        div.nav-collapse.collapse
+          p.navbar-text.pull-right login in as 
+            a.navbar-link(href="#") 李桂玺
+          ul.nav
+            li.active
+              a(href="/") 首页
+            li
+              a(href="#") 关于
+            li
+              a(href="#contact") 联系我们
+  div.container-fluid
+    div.row-fluid
+      div.span2
+        div.well.sidebar-nav
+          ul.nav.nav-list
+            li.nav-header 试卷管理
+            li
+              a(href="/addPaper") 添加技术试卷
+            li
+              a(href="#") 技术试卷列表
+            li
+              a(href="#") 添加日语试卷
+            li
+              a(href="#") 日语试卷列表
+            li.nav-header 考试管理
+            li.active
+              a(href="addExam") 添加考试
+            li
+              a(href="#") 考试列表
+            li.nav-header 成绩评定
+            li
+              a(href="#") 手工阅卷
+            li
+              a(href="#") 高校成绩
+            li
+              a(href="#") 成绩发布
+            li
+              a(href="#") 成绩查询
+            li
+              a(href="#") 考试安排
+            li.nav-header 监控管理
+            li
+              a(href="#") 考试监控
+            li
+              a(href="#") 考生监控
+            li
+              a(href="#") 监考工具
+            li
+              a(href="#") 试题监控
+            li.nav-header 课程设置
+            li
+              a(href="#") 课程设置
+            li
+              a(href="#") 课程分配列表
+      div.span9
+        legend 
+          h4 第一步：填写考试基本信息
+        div.row-fluid
+          dl.dl-horizontal
+            dt 考试名称
+            dd 
+              input.input-xxlarge(type="text",placeholder="考试名称")
+            dt 所属课程
+            dd 
+              select.input-large
+                option(value="1") 数据库原理与应用
+                option(value="1") Java SE程序设计
+                option(value="1") Java Web程序设计
+            dt 考试须知
+            dd
+              textarea.input-block-level(rows="6",placeholder="考试须知")
+            dt 考试时长
+            dd 
+              input.span2(type="text",placeholder="")
+              分钟
+            dt 考试时间
+            dd
+              开始时间 
+              input.span2(type="text",placeholder="")
+              结束时间 
+              input.span2(type="text",placeholder="")
+            dt 阅卷时长
+            dd 
+              input.span2(type="text")
+              天
+            dt 阅卷期限
+            dd 
+              开始时间 
+              input.span2(type="text")
+              结束时间 
+              input.span2(type="text")
+            dt 考试种类
+          p(style="text-align:center;")
+            a.btn.btn-primary.btn-large(href="/addExam2") 下一步 
+              i.icon-forward
+    hr
+    footer
+      p
+        © 青岛东合信息技术有限公司 2013

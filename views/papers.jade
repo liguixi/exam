@@ -1,0 +1,119 @@
+extends layout
+      
+block content
+  style(type="text/css")
+    body {
+      padding-top: 60px;
+      padding-bottom: 40px;
+    }
+    .sidebar-nav {
+      padding: 9px 0;
+    }
+
+  div.navbar.navbar-inverse.navbar-fixed-top
+    div.navbar-inner
+      div.container-fluid
+        a.btn.btn-navbar(data-toggle="collapse",data-target=".nav-collapse")
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.brand(href="#") 在线考试
+        div.nav-collapse.collapse
+          p.navbar-text.pull-right login in as 
+            a.navbar-link(href="#") 李桂玺
+          ul.nav
+            li.active
+              a(href="/") 首页
+            li
+              a(href="#") 关于
+            li
+              a(href="#contact") 联系我们
+  div.container-fluid
+    div.row-fluid
+      div.span2
+        div.well.sidebar-nav
+          ul.nav.nav-list
+            li.nav-header 试卷管理
+            li
+              a(href="/addPaper") 添加技术试卷
+            li.active
+              a(href="/papers") 技术试卷列表
+            li
+              a(href="#") 添加日语试卷
+            li
+              a(href="#") 日语试卷列表
+            li.nav-header 考试管理
+            li
+              a(href="/addExam") 添加考试
+            li
+              a(href="#") 考试列表
+            li.nav-header 成绩评定
+            li
+              a(href="#") 手工阅卷
+            li
+              a(href="#") 高校成绩
+            li
+              a(href="#") 成绩发布
+            li
+              a(href="#") 成绩查询
+            li
+              a(href="#") 考试安排
+            li.nav-header 监控管理
+            li
+              a(href="#") 考试监控
+            li
+              a(href="#") 考生监控
+            li
+              a(href="#") 监考工具
+            li
+              a(href="#") 试题监控
+            li.nav-header 课程设置
+            li
+              a(href="#") 课程设置
+            li
+              a(href="#") 课程分配列表
+      div.span9
+        legend 
+          h4 试卷列表
+        div.row-fluid
+          table.table.table-hover.table-condensed
+            thead
+              tr
+                td(style="width: 150px;") 试卷名称
+                td(style="width: 300px;") 课程名称
+                td 试卷说明
+                td 状态
+                td 总分
+                td 试题数量
+            tbody
+              for paper in papers
+                tr 
+                  td 
+                    small #{paper.course_name}
+                  td 
+                    small #{paper.name}
+                  td 
+                    small #{paper.description}
+                  td 
+                    small 
+                      - if(paper.status == 1)
+                        编辑
+                      - else if (paper.status == 2)
+                        可用
+                  td 
+                    small #{paper.total_point}
+                  td 
+                    small #{paper.question_count}
+        div.pagination
+          ul
+            - for (var index = 1; index <= count/pageSize + 1; index ++)
+              - if(pageNo == index)
+                li.disabled
+                  a(href="#") #{index}
+              - else
+                li
+                  a(href="#") #{index}
+    hr
+    footer
+      p
+        © 青岛东合信息技术有限公司 2013

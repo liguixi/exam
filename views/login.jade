@@ -1,0 +1,16 @@
+extends layout
+block scripts
+  script(type='text/javascript', src='/public/scripts/jquery.js')
+  script(type='text/javascript', src='/public/scripts/bootstrap.js')
+block content
+  h1 用户登录
+  form(method='post',action='')
+    p 用户名
+      input(type='text', name='username')
+    p 密码
+      input(type='password', name='password')
+    div
+      a(href='/toLogin',title='网校登录')登录
+
+  div(style='margin-top:20px;')
+    a.red(href='/',title='网校首页') 网校首页
